@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Practice Game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>영어 타이핑 연습 게임</h1>
+      </header>
+      <main>
+        <div class="game">
+          <div class="output-window">Click Start Game</div>
+          <div class="input-window">
+            <input type="text" class="word-input" />
+          </div>
+          <div class="game-info">
+            <div class="timer">
+              남은 시간: <span class="time-value">0</span>초
+            </div>
+            <div class="score">
+              획득 점수: <span class="score-value">0</span>점
+            </div>
+            <div class="score">
+              승리 조건: <span class="victory">100</span>점
+            </div>
+          </div>
+          <div class="button-wrapper">
+            <button class="button loading">게임 시작</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div id="invisible-words" class="d-none"></div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
