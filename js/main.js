@@ -4,7 +4,7 @@ const GAME_TIME = 10;
 const START_GAME = "게임시작";
 const IN_GAME = "게임중";
 const LOADING_GAME = "게임로딩중...";
-let score = 0;
+let score = 95;
 let time = GAME_TIME;
 let isPlaying = false;
 let checkInterVal;
@@ -36,14 +36,17 @@ function setPageLoad() {
 }
 
 function init() {
+  isPlaying = false;
   buttonChange(START_GAME);
   clearInterval(checkInterVal);
+  clearInterval(timeInterval);
   wordInput.classList.add("loading");
   wordInput.placeholder = "";
   wordDisplay.innerText = "Click Start Game";
   wordInput.value = "";
   wordInput.disabled = true;
   scoreDisplay.innerText = "0";
+  timeDisplay.innerText = "0";
 }
 
 function isVictory() {
