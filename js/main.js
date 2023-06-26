@@ -1,10 +1,11 @@
 const RANDOM_WORD_API_ADDRESS =
   "https://random-word-api.herokuapp.com/word?number=100";
-const GAME_TIME = 10;
+const GAME_TIME = 9;
 const START_GAME = "게임시작";
 const IN_GAME = "게임중";
 const LOADING_GAME = "게임로딩중...";
-let score = 95;
+const initScore = 0;
+let score = 0;
 let time = GAME_TIME;
 let isPlaying = false;
 let checkInterVal;
@@ -45,8 +46,8 @@ function init() {
   wordDisplay.innerText = "Click Start Game";
   wordInput.value = "";
   wordInput.disabled = true;
-  scoreDisplay.innerText = "0";
-  timeDisplay.innerText = "0";
+  scoreDisplay.innerText = initScore;
+  timeDisplay.innerText = initScore;
 }
 
 function isVictory() {
@@ -59,6 +60,8 @@ function getWords() {
     .then(function (response) {
       words = Array.from(response.data).filter((word) => word.length < 10);
       invisibleWords = words;
+    })
+    .then(function () {
       buttonChange(START_GAME);
     })
     .catch(function (error) {
@@ -91,8 +94,9 @@ function checkMatch(e) {
       return;
     }
     score += 5;
-    scoreDisplay.innerText = score; //++score;
+    scoreDisplay.innerText = score;
     time = GAME_TIME;
+    timeDisplay.innerText = time;
     bindRandomWord();
   }
 }
