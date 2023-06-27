@@ -5,7 +5,7 @@ const START_GAME = "게임시작";
 const IN_GAME = "게임중";
 const LOADING_GAME = "게임로딩중...";
 const initScore = 0;
-let score = 0;
+let score = initScore;
 let time = GAME_TIME;
 let isPlaying = false;
 let checkInterVal;
@@ -46,6 +46,7 @@ function init() {
   wordDisplay.innerText = "Click Start Game";
   wordInput.value = "";
   wordInput.disabled = true;
+  score = initScore;
   scoreDisplay.innerText = initScore;
   timeDisplay.innerText = initScore;
 }
